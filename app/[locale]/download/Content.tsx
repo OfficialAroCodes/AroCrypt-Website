@@ -161,36 +161,16 @@ const DownloadContent = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128.23,30A40,40,0,0,1,167,0h1a8,8,0,0,1,0,16h-1a24,24,0,0,0-23.24,18,8,8,0,1,1-15.5-4ZM223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.23,72.23,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127,127,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Z"></path></svg>
                             MacOS
                         </p>
-                        {
-                            releaseInfo.debFiles.length > 0 ? (
-                                releaseInfo.exeFiles.map((file, idx) => (
-                                    <a
-                                        key={idx}
-                                        href={file.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className='download_btn'
-                                    >
-                                        <div className='details'>
-                                            <span>{file.name}</span>
-                                            <span className='small_info'>{file.sizeMB} MB</span>
-                                        </div>
-                                        <span className='icon'>{DownloadIcon}</span>
-                                    </a>
-                                ))
-                            ) : (
-                                <p className="not_available">
-                                    {t("macos_request_text")}
-                                    <a
-                                        href={`https://github.com/OfficialAroCodes/AroCrypt/discussions/categories/ideas`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        GitHub Discussions
-                                    </a>
-                                </p>
-                            )
-                        }
+                        <p className="not_available">
+                            {t("macos_request_text")}
+                            <a
+                                href={`https://github.com/OfficialAroCodes/AroCrypt/discussions/categories/ideas`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub Discussions
+                            </a>
+                        </p>
                     </motion.div>
                 </div>
             </div>
