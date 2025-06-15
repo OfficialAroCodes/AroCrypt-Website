@@ -1,0 +1,97 @@
+{
+    "beta_warning": "Public beta is now available! Bugs and crashes may occur.",
+    "releases": "Releases",
+    "releases_info": "Stay up to date with the latest features, fixes, and improvements—because encryption is only as strong as its latest update.",
+    "versions": "Versions",
+    "source_code": "Source Code",
+    "blogs": "Blogs",
+    "main_section_header": "The Program for Security and Privacy",
+    "main_section_description": "\"They infiltrate. They exploit. AroCrypt locks them out cold.\"",
+    "download_now": "Download now",
+    "download": "Download",
+    "available_for": "Available for Windows and Linux!",
+    "section2_boxes": {
+        "section_info": "AroCrypt is a sleek, user-friendly app that encrypts and decrypts text, files, and other digital data with rock-solid security. It’s your go-to tool for safeguarding sensitive information.",
+        "box1": {
+            "title": "Blazing Fast Encryption",
+            "description": "AroCrypt is optimized for lightning-speed performance—no waiting, just instant security."
+        },
+        "box2": {
+            "title": "Sleek & Intuitive UI",
+            "description": "Enjoy a modern, user-friendly interface that makes encryption and decryption a breeze."
+        },
+        "box3": {
+            "title": "Flexible Encryption",
+            "description": "Handle files, text, and more—all in one app. AroCrypt adapts to your needs with total flexibility."
+        }
+    },
+    "features": "Features",
+    "features_desc": "Unlock the full power of AroCrypt. From file encryption to text protection and hidden secrets in images, we’re here to keep your data safe and sound.",
+    "feature_boxes": {
+        "box1": {
+            "title": "File Encryption",
+            "desc": "Secure your files with strong encryption. Just drag, drop, and protect—your data stays yours."
+        },
+        "box2": {
+            "title": "Text Encryption",
+            "desc": "Type, encrypt, and share safely. AroCrypt makes text encryption effortless and lightning fast."
+        },
+        "box3": {
+            "title": "Image Steganography",
+            "desc": "Hide sensitive files in images effortlessly, protected by automatic encryption."
+        },
+        "box4": {
+            "title": "More Features Coming Soon!",
+            "desc": "Stay tuned for future updates with even more tools to enhance your privacy and flexibility."
+        }
+    },
+    "encryption_power": "Encryption Power",
+    "encryption_power_desc": "AroCrypt is built on industry-standard encryption algorithms, starting with AES-256 — the same technology trusted by banks and governments. Future updates will bring even more advanced cryptographic options, keeping you one step ahead of cyber threats.",
+    "ep_boxes": {
+        "box1": {
+            "title": "AES-256 Encryption",
+            "desc": "AroCrypt leverages AES-256, the Advanced Encryption Standard with a 256-bit key size—the same robust algorithm used by banks, governments, and security experts worldwide. With a virtually unbreakable design, AES-256 ensures your data is safeguarded against unauthorized access, brute-force attacks, and evolving cyber threats."
+        },
+        "box2": {
+            "title": "Crack Time Estimate",
+            "desc": "To put it in perspective: cracking an AES-256 encryption key using a supercomputer capable of one billion (1,000,000,000) key attempts per second would still take approximately 1,157,920,892,373,161,954,235,709,850,086,879,078,532,699,846,656,405,640,394,575,424 years. That’s roughly 10^68 years. In short: it’s not happening."
+        },
+        "box3": {
+            "title": "Future-Proof Security",
+            "desc": "We're not stopping at AES-256. Future versions of AroCrypt will integrate additional encryption algorithms to stay ahead of the curve. Whether it's post-quantum encryption or advanced cryptographic standards, your data will remain secure in a world of evolving technology and threats."
+        }
+    },
+    "use_cases": {
+        "section_title": "Use Cases",
+        "section_desc": "AroCrypt isn’t just a tool—it’s your digital bodyguard. Whether you’re a developer, business owner, or privacy-conscious user, AroCrypt shields your data in ways you didn’t think possible.",
+        "box1": {
+            "title": "Encrypted Messaging",
+            "desc": "Keep your personal and business chats locked down with military-grade encryption."
+        },
+        "box2": {
+            "title": "Secure Cloud Storage",
+            "desc": " Encrypt your files before they ever leave your device, so you’re in control—always."
+        },
+        "box3": {
+            "title": "Password Vault",
+            "desc": "Keep your passwords locked in an encrypted vault where only you hold the keys."
+        },
+        "box4": {
+            "title": "Encrypted File Sharing",
+            "desc": "Share sensitive files without worry. AroCrypt keeps them safe in transit and at rest."
+        }
+    },
+    "rel_winget_info": "You can also install via winget command",
+    "windows_unavailable": "Looks like the Windows version isn’t available for this release. You can always check the ",
+    "linux_unavailable": "Looks like the Linux version isn’t available for this release. You can always check the ",
+    "windows_download_support": "Supported on x64 architecture for Windows 8 or later.",
+    "view_release_notes": "View Release",
+    "footer": {
+        "site_info": "AroCrypt™ by AroCodes © 2025",
+        "product": "Product",
+        "developer": "Developer",
+        "open_source": "It's Open Source",
+        "website": "Website"
+    },
+    "macos_request_text": "AroCrypt isn't planned for macOS yet. If you want it, drop an 'Ideas' message in our "
+}
