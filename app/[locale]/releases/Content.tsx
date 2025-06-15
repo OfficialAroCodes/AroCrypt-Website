@@ -30,11 +30,7 @@ const ReleaseContent = () => {
     useEffect(() => {
         const fetchReleases = async () => {
             try {
-                const response = await fetch('https://api.github.com/repos/OfficialAroCodes/arocrypt/releases', {
-                    headers: {
-                        Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`
-                    }
-                });
+                const response = await fetch('https://api.github.com/repos/OfficialAroCodes/arocrypt/releases');
                 const data: GitHubRelease[] = await response.json();
                 setVersions(data);
                 setSelectedVersion(data[0]);
