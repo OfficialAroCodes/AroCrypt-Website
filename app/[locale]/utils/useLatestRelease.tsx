@@ -32,9 +32,9 @@ export function useLatestRelease() {
                 if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
                 const data: GitHubRelease = await res.json();
 
-                const parseAssets = (ext: string) =>
+                const parseAssets = (extensions: string[]) =>
                     data.assets
-                        .filter(asset => asset.name.endsWith(ext))
+                        .filter(asset => extensions.some(ext => asset.name.endsWith(ext)))
                         .map(asset => ({
                             name: asset.name,
                             url: asset.browser_download_url,
@@ -44,8 +44,8 @@ export function useLatestRelease() {
                 setReleaseInfo({
                     version: data.tag_name,
                     date: data.published_at,
-                    exeFiles: parseAssets('.exe'),
-                    debFiles: parseAssets('.deb'),
+                    exeFiles: parseAssets(['.exe']),
+                    debFiles: parseAssets(['.deb', '.AppImage']),
                 });
             } catch (err) {
                 if (err instanceof Error) {
