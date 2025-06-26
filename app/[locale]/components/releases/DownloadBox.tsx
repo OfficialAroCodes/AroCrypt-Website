@@ -19,10 +19,10 @@ interface DownloadBoxProps {
 
 const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
     const t = useTranslations();
-    if (!selectedVersion) return null;
-    
     const [macModal, setMacModal] = useState(false);
     const [macDownloadLink, setMacDownloadLink] = useState("");
+
+    if (!selectedVersion) return null;
 
     const windowsAssets = selectedVersion.assets.filter(a =>
         a.name.toLowerCase().endsWith('.exe')
