@@ -17,8 +17,9 @@ interface GitHubRelease {
 interface ReleaseInfo {
     version: string;
     date: string;
-    exeFiles: { name: string; url: string; sizeMB: string }[];
-    debFiles: { name: string; url: string; sizeMB: string }[];
+    winFiles: { name: string; url: string; sizeMB: string }[];
+    linuxFiles: { name: string; url: string; sizeMB: string }[];
+    macFiles: { name: string; url: string; sizeMB: string }[];
 }
 
 export function useLatestRelease() {
@@ -44,8 +45,9 @@ export function useLatestRelease() {
                 setReleaseInfo({
                     version: data.tag_name,
                     date: data.published_at,
-                    exeFiles: parseAssets(['.exe']),
-                    debFiles: parseAssets(['.deb', '.AppImage']),
+                    winFiles: parseAssets(['.exe']),
+                    linuxFiles: parseAssets(['.deb', '.AppImage']),
+                    macFiles: parseAssets(['.dmg']),
                 });
             } catch (err) {
                 if (err instanceof Error) {

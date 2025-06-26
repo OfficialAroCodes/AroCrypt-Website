@@ -13,11 +13,11 @@ const ReleaseNotes: React.FC<ReleaseNotesProps> = ({ markdownContent }) => {
     useEffect(() => {
         const preprocessMarkdown = (markdown: string): string => {
             return markdown
-                .replace(/\[!NOTE\]/g, '## Note:')
-                .replace(/\[!TIP\]/g, '### Tip:')
-                .replace(/\[!IMPORTANT\]/g, '### Important:')
-                .replace(/\[!WARNING\]/g, '### Warning:')
-                .replace(/\[!CAUTION\]/g, '### Caution:')
+                .replace(/\[!NOTE\]/g, '')
+                .replace(/\[!TIP\]/g, '')
+                .replace(/\[!IMPORTANT\]/g, '')
+                .replace(/\[!WARNING\]/g, '')
+                .replace(/\[!CAUTION\]/g, '')
         };
 
         const html = parseMarkdown(preprocessMarkdown(markdownContent));

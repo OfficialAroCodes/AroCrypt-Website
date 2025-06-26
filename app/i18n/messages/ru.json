@@ -9,7 +9,7 @@
     "main_section_description": "\"Они проникают. Они используют. AroCrypt оставляет их за бортом.\"",
     "download_now": "Загрузить сейчас",
     "download": "Загрузить",
-    "available_for": "Доступно для Windows и Linux!",
+    "available_for": "Доступно для Windows, Linux & macOS!",
     "section2_boxes": {
         "section_info": "AroCrypt — это стильное и удобное приложение для шифрования и дешифрования текста, файлов и других данных с надежной защитой. Это ваш надежный инструмент для защиты конфиденциальной информации.",
         "box1": {
@@ -81,17 +81,35 @@
             "desc": "Делитесь важными файлами без риска. AroCrypt защитит их в пути и на месте."
         }
     },
-    "rel_winget_info": "Можно установить через команду winget",
-    "windows_unavailable": "Версия для Windows недоступна в этом релизе. Проверьте ",
-    "linux_unavailable": "Версия для Linux недоступна в этом релизе. Проверьте ",
-    "windows_download_support": "Поддерживается на архитектуре x64 для Windows 8 или более поздних версий.",
-    "view_release_notes": "Посмотреть Релиз",
+    "windows_unavailable": "Версия для Windows недоступна в этом релизе. Если это ошибка, проверьте репозиторий на GitHub.",
+    "linux_unavailable": "Версия для Linux недоступна в этом релизе. Если это ошибка, проверьте репозиторий на GitHub.",
+    "mac_unavailable": "Версия для macOS недоступна в этом релизе. Если это ошибка, проверьте репозиторий на GitHub.",
+    "windows_download_support": "Требуется Windows 8 или новее (32-бит или 64-бит).",
+    "linux_download_support": "Требуется Linux на базе Debian (64-бит).",
+    "mac_download_support": "Требуется macOS 11 или новее (64-бит или ARM64).",
+    "view_release_notes": "Посмотреть изменения",
     "footer": {
-        "site_info": "AroCrypt™ от AroCodes © 2025",
+        "site_info": "AroCrypt от AroCodes © 2025",
         "product": "Продукт",
         "developer": "Разработчик",
-        "open_source": "Открытый Исходный Код",
-        "website": "Сайт"
+        "open_source": "Это с открытым кодом",
+        "website": "Веб-сайт"
     },
-    "macos_request_text": "Версия AroCrypt для macOS пока не планируется. Если она вам нужна — оставьте сообщение в разделе Ideas на "
+    "unsigned_app": {
+        "header": "Приложение не подписано!",
+        "info": "Приложение не подписано Apple Developer ID, поэтому macOS может показать предупреждение при установке или запуске.",
+        "how_to": "Узнайте, как установить приложение:",
+        "cancel": "Отмена",
+        "download": "Скачать всё равно"
+    },
+    "download_page": {
+        "header": "Скачать AroCrypt",
+        "info": "Скачайте свежую версию AroCrypt — с шифрованием, улучшениями и всем нужным для безопасности."
+    },
+    "pin_board": {
+        "header": "Пин-доска",
+        "pin_1": "AroCrypt теперь доступен на Windows, Linux и macOS",
+        "pin_2": "Установите AroCrypt на Windows с помощью команды ниже.",
+        "pin_3": "Последний релиз AroCrypt:"
+    }
 }
