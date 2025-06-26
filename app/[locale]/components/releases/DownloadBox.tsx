@@ -18,8 +18,6 @@ interface DownloadBoxProps {
 }
 
 const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
-    const [isCopied, setIsCopied] = useState(false);
-
     const t = useTranslations();
     if (!selectedVersion) return null;
 
@@ -39,18 +37,6 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
 
     const bytesToMB = (bytes: number): string => {
         return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
-    };
-
-    const copyCommand = async (text: string) => {
-        try {
-            setIsCopied(true);
-            await navigator.clipboard.writeText(text);
-            setTimeout(() => {
-                setIsCopied(false);
-            }, 1200);
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-        }
     };
 
     const [macModal, setMacModal] = useState(false);

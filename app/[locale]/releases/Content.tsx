@@ -6,7 +6,6 @@ import BlurText from '@/[locale]/components/ui/BlurText';
 import { motion } from "framer-motion";
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import MacDownloadModal from '../components/MacDownloadModal';
 
 interface GitHubAsset {
     id: number;
