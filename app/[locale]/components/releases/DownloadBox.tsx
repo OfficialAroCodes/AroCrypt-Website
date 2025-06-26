@@ -20,6 +20,9 @@ interface DownloadBoxProps {
 const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
     const t = useTranslations();
     if (!selectedVersion) return null;
+    
+    const [macModal, setMacModal] = useState(false);
+    const [macDownloadLink, setMacDownloadLink] = useState("");
 
     const windowsAssets = selectedVersion.assets.filter(a =>
         a.name.toLowerCase().endsWith('.exe')
@@ -38,9 +41,6 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
     const bytesToMB = (bytes: number): string => {
         return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
     };
-
-    const [macModal, setMacModal] = useState(false);
-    const [macDownloadLink, setMacDownloadLink] = useState("");
 
     return (
         <>
