@@ -98,7 +98,7 @@
     "unsigned_app": {
         "header": "Unsigned App!",
         "info": "Since this app isn’t signed with an official Apple Developer ID, macOS will warn you during installation or launch.",
-        "how_to": "Learn how to install the app:",
+        "how_to": "Learn how to install:",
         "cancel": "Cancel",
         "download": "Download anyway"
     },

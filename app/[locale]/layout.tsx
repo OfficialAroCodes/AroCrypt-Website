@@ -15,43 +15,67 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "AroCrypt ― Defend Your Data. Protect Your Privacy.",
+  title: "AroCrypt ― Encrypt. Conceal. Stay Invisible.",
   description:
-    "AroCrypt is your shield against digital threats. Simple yet powerful encryption keeps your data secure and your privacy intact. Stay protected, always.",
+    "AroCrypt merges military-grade encryption with smart steganography to hide your data in plain sight — not just in images, but anywhere you need. Lock it. Mask it. Own your privacy.",
+  applicationName: "AroCrypt",
+  authors: [{ name: "AroCodes", url: "https://github.com/AroCodes" }],
+  generator: "Next.js",
+  keywords: [
+    "AroCrypt",
+    "encryption",
+    "steganography",
+    "data hiding",
+    "secure communication",
+    "cybersecurity",
+    "data protection",
+    "digital privacy",
+    "file security",
+    "invisible encryption",
+  ],
   icons: {
     icon: [{ url: "/images/other/logo.png", type: "image/png" }],
   },
   openGraph: {
-    title: "AroCrypt ― Defend Your Data. Protect Your Privacy.",
+    title: "AroCrypt ― Encrypt. Conceal. Stay Invisible.",
     description:
-      "AroCrypt is your trusted shield against digital threats. Simple yet powerful encryption keeps your data secure and privacy intact.",
+      "AroCrypt merges military-grade encryption with smart steganography to hide your data in plain sight — not just in images, but anywhere you need. Lock it. Mask it. Own your privacy.",
     url: "https://arocrypt.vercel.app",
     siteName: "AroCrypt",
     images: [
       {
-        url: "/images/other/logo.png",
+        url: "/images/other/og.png",
         width: 1200,
         height: 630,
-        alt: "AroCrypt Logo",
+        alt: "AroCrypt OpenGraph Preview",
+        type: "image/png",
       },
     ],
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AroCrypt ― Encrypt. Conceal. Stay Invisible.",
+    description:
+      "Military-grade encryption meets stealth-mode data protection. AroCrypt hides your secrets in plain sight using advanced steganography.",
+    creator: "@AroCodes",
+    images: ["/images/other/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
   },
   alternates: {
     canonical: "https://arocrypt.vercel.app",
   },
   metadataBase: new URL("https://arocrypt.vercel.app"),
-  applicationName: "AroCrypt",
-  authors: [{ name: "AroCodes" }],
-  generator: "Next.js",
-  keywords: [
-    "AroCrypt",
-    "encryption",
-    "privacy",
-    "data protection",
-    "secure communication",
-    "cybersecurity",
-  ],
 };
 
 export default async function LocaleLayout({
