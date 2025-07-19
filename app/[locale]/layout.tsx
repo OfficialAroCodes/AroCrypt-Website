@@ -107,6 +107,7 @@ function LocaleLayoutContent({
     <html lang={locale} data-theme="light">
       <head>
         <meta name="google-site-verification" content="4UI9oIy7W9_Ni-k0KRP-Qev8mJg3Gr0ncnzHit68mLI" />
+        <meta name="yandex-verification" content="547d2f43a3f6c6ea" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body>
