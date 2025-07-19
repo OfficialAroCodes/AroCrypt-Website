@@ -7,6 +7,8 @@ export async function GET() {
   const now = Date.now();
   const isExpired = now - lastFetch > 60_000;
 
+  console.log('GITHUB_TOKEN:', !!process.env.GITHUB_TOKEN);
+
   if (!cache || isExpired) {
     try {
       const response = await fetch('https://api.github.com/repos/OfficialAroCodes/arocrypt/releases', {
@@ -16,12 +18,14 @@ export async function GET() {
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         },
       });
-      console.log('GITHUB_TOKEN:', !!process.env.GITHUB_TOKEN);
 
       if (!response.ok) {
         const errText = await response.text();
         console.error('GitHub fetch failed:', response.status, errText);
-        return NextResponse.json({ error: 'GitHub fetch failed' }, { status: response.status });
+        return NextResponse.json({ 
+          error: 'GitHub fetch failed',
+          tokenDefined: !!process.env.GITHUB_TOKEN
+        }, { status: response.status });
       }
 
       cache = await response.json();
