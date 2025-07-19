@@ -27,16 +27,16 @@ const ReleaseContent = () => {
     const [versions, setVersions] = useState<GitHubRelease[]>([]);
     const [selectedVersion, setSelectedVersion] = useState<GitHubRelease | null>(null);
     const [isError, setErrorState] = useState(false);
-    const [userIp, setUserIp] = useState("");
 
     useEffect(() => {
         const fetchReleases = async () => {
             try {
-                const response = await fetch('https://api.github.com/repos/OfficialAroCodes/arocrypt/releases');
+                const response = await fetch('/api/releases');
                 const data: GitHubRelease[] = await response.json();
+
                 setVersions(data);
                 setSelectedVersion(data[0]);
-                setErrorState(response.status === 403);
+                setErrorState(response.status !== 200);
             } catch (error) {
                 setErrorState(true);
                 console.error('Error fetching releases:', error);
@@ -44,12 +44,6 @@ const ReleaseContent = () => {
         };
 
         fetchReleases();
-
-        fetch('https://api.ipquery.io/?format=json').then(
-            response => response.json()
-        ).then(data => {
-            setUserIp(data.ip);
-        });
     }, []);
 
     const handleVersionClick = (version: GitHubRelease) => {
@@ -83,15 +77,33 @@ const ReleaseContent = () => {
                             ease: [0, 0.71, 0.2, 1.01],
                         },
                     }}
+                    className='texts'
                 >
                     <p className='section_info'>{t('releases_info')}</p>
+                    <p className='section_link_text'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-4,48a12,12,0,1,1-12,12A12,12,0,0,1,124,72Zm12,112a16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40a8,8,0,0,1,0,16Z"></path></svg>
+                        {
+                            t.rich('join_community', {
+                                discord: (chunks) => (
+                                    <a href="https://discord.gg/uwzRmTuH9n" target="_blank" rel="noopener noreferrer">
+                                        {chunks}
+                                    </a>
+                                ),
+                                telegram: (chunks) => (
+                                    <a href="https://t.me/arocrypt_channel" target="_blank" rel="noopener noreferrer">
+                                        {chunks}
+                                    </a>
+                                )
+                            })
+                        }
+                    </p>
                 </motion.div>
             </div>
 
             {
                 isError ? (
                     <p className='fetch_info_fail'>
-                        Failed to load AroCrypt info from GitHub. API responded with status 403 – rate limit exceeded for IP {userIp}.
+                        Oops! We couldn’t fetch AroCrypt info from GitHub right now. Looks like the API rate limit for your IP was hit. Please try again a bit later.
                     </p>
                 ) : (
                     <motion.div

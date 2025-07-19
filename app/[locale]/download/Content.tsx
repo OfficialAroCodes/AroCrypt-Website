@@ -195,8 +195,8 @@ const DownloadContent = () => {
                 </div>
             </div>
 
-            <div className={`modal_main_container ${macModal && 'show'}`}>
-                <MacDownloadModal downloadLink={macDownloadLink} isShown={macModal} onClose={() => setMacModal(false)} />
+            <div className={`modal_main_container ${macModal ? 'show' : ''}`}>
+                <MacDownloadModal downloadLink={macDownloadLink} onClose={() => setMacModal(false)} />
             </div>
         </>
     )

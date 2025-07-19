@@ -88,7 +88,9 @@
     "linux_download_support": "Requires Debian-based Linux (64-bit).",
     "mac_download_support": "Requires macOS 11 or later (64-bit or ARM64).",
     "view_release_notes": "View Changelog",
+    "join_community": "Join our <discord>Discord</discord> or <telegram>Telegram</telegram> for updates!",
     "footer": {
+        "rights": "All rights reserved",
         "site_info": "AroCrypt by AroCodes © 2025",
         "product": "Product",
         "developer": "Developer",
@@ -111,5 +113,54 @@
         "pin_1": "AroCrypt is now available on Windows, Linux, and macOS",
         "pin_2": "Install AroCrypt on Windows with the command below.",
         "pin_3": "The latest release of AroCrypt is"
+    },
+    "metadata": {
+        "index": {
+            "title": "AroCrypt ― Encrypt. Conceal. Stay Invisible.",
+            "desc": "AroCrypt merges military-grade encryption with smart steganography to hide your data in plain sight — not just in images, but anywhere you need. Lock it. Mask it. Own your privacy.",
+            "keywords": {
+                "key1": "AroCrypt",
+                "key2": "encryption",
+                "key3": "steganography",
+                "key4": "data hiding",
+                "key5": "secure communication",
+                "key6": "cybersecurity",
+                "key7": "data protection",
+                "key8": "digital privacy",
+                "key9": "file security",
+                "key10": "invisible encryption"
+            },
+            "x_desc": "Military-grade encryption meets stealth-mode data protection. AroCrypt hides your secrets in plain sight using advanced steganography."
+        },
+        "releases": {
+            "title": "AroCrypt Releases ― View All Versions and Info",
+            "desc": "Browse every AroCrypt release with detailed version info, change logs, and download links. Stay updated with the latest in encryption and steganography tech.",
+            "keywords": {
+                "key1": "AroCrypt",
+                "key2": "encryption software",
+                "key3": "steganography tool",
+                "key4": "secure file transfer",
+                "key5": "latest release",
+                "key6": "version history",
+                "key7": "download encryption tool",
+                "key8": "AroCrypt updates"
+            },
+            "x_desc": "Browse every AroCrypt release with detailed info. Stay updated with the latest in encryption and steganography tech."
+        },
+        "download": {
+            "title": "AroCrypt Download for Windows, Linux, and macOS",
+            "desc": "Download AroCrypt, the cross-platform encryption and steganography tool built for privacy-first users. Secure your files instantly on Windows, Linux, or macOS.",
+            "keywords": {
+                "key1": "download encryption tool",
+                "key2": "encryption software",
+                "key3": "Windows file encryption",
+                "key4": "Linux cryptography",
+                "key5": "macOS privacy app",
+                "key6": "secure file transfer",
+                "key7": "AES encryption",
+                "key8": "steganography software"
+            },
+            "x_desc": "One tool. Three platforms. Encrypt and hide your data with AroCrypt on Windows, Linux, and macOS."
+        }
     }
 }

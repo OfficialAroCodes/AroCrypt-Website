@@ -1,107 +1,191 @@
+import en from '@/i18n/messages/en.json';
+import ru from '@/i18n/messages/ru.json';
+
+import { ReactNode } from "react";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import "./main.css";
 
-/* info: Component and Provider Imports */
-import { ThemeProvider } from "./providers/ThemeProvider";
-import Topbar from "./components/Topbar";
-import Footer from "./components/Footer";
-
 /* info: Language Imports */
-import { routing } from '@/i18n/routing';
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
+import LocaleLayoutInner from "./LocaleLayoutInner";
 
-/* info: Analytics */
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
-export const metadata: Metadata = {
-  title: "AroCrypt ― Encrypt. Conceal. Stay Invisible.",
-  description:
-    "AroCrypt merges military-grade encryption with smart steganography to hide your data in plain sight — not just in images, but anywhere you need. Lock it. Mask it. Own your privacy.",
-  applicationName: "AroCrypt",
-  authors: [{ name: "AroCodes", url: "https://github.com/AroCodes" }],
-  generator: "Next.js",
-  keywords: [
-    "AroCrypt",
-    "encryption",
-    "steganography",
-    "data hiding",
-    "secure communication",
-    "cybersecurity",
-    "data protection",
-    "digital privacy",
-    "file security",
-    "invisible encryption",
-  ],
-  icons: {
-    icon: [{ url: "/images/other/logo.png", type: "image/png" }],
-  },
+interface MetaData {
+  title: string;
+  description: string;
+  keywords: string[];
+  authors: { name: string; url?: string }[];
+  icons: { icon: { url: string; type: string }[] };
   openGraph: {
-    title: "AroCrypt ― Encrypt. Conceal. Stay Invisible.",
-    description:
-      "AroCrypt merges military-grade encryption with smart steganography to hide your data in plain sight — not just in images, but anywhere you need. Lock it. Mask it. Own your privacy.",
-    url: "https://arocrypt.vercel.app",
-    siteName: "AroCrypt",
-    images: [
-      {
-        url: "/images/other/og.png",
-        width: 1200,
-        height: 630,
-        alt: "AroCrypt OpenGraph Preview",
-        type: "image/png",
-      },
-    ],
-    type: "website",
-    locale: "en_US",
-  },
+    title: string;
+    description: string;
+    url: string;
+    siteName: string;
+    images: { url: string; width: number; height: number; alt: string; type: string }[];
+    type: string;
+    locale: string;
+  };
   twitter: {
-    card: "summary_large_image",
-    title: "AroCrypt ― Encrypt. Conceal. Stay Invisible.",
-    description:
-      "Military-grade encryption meets stealth-mode data protection. AroCrypt hides your secrets in plain sight using advanced steganography.",
-    creator: "@AroCodes",
-    images: ["/images/other/og.png"],
-  },
+    card: string;
+    title: string;
+    description: string;
+    creator: string;
+    images: string[];
+  };
   robots: {
-    index: true,
-    follow: true,
-    nocache: false,
+    index: boolean;
+    follow: boolean;
+    nocache: boolean;
     googleBot: {
+      index: boolean;
+      follow: boolean;
+      noimageindex: boolean;
+    };
+  };
+  alternates: {
+    canonical: string;
+  };
+  metadataBase: URL;
+}
+
+const meta: Record<string, MetaData> = {
+  en: {
+    title: en.metadata.index.title,
+    description: en.metadata.index.desc,
+    keywords: Object.values(en.metadata.index.keywords),
+    authors: [{ name: 'AroCodes', url: 'https://github.com/OfficialAroCodes' }],
+    icons: {
+      icon: [{ url: '/images/other/logo.png', type: 'image/png' }],
+    },
+    openGraph: {
+      title: en.metadata.index.title,
+      description: en.metadata.index.desc,
+      url: 'https://arocrypt.vercel.app',
+      siteName: 'AroCrypt',
+      images: [
+        {
+          url: '/images/other/og.png',
+          width: 1200,
+          height: 630,
+          alt: 'AroCrypt OpenGraph Preview',
+          type: 'image/png',
+        },
+      ],
+      type: 'website',
+      locale: 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: en.metadata.index.title,
+      description: en.metadata.index.x_desc,
+      creator: '@arocodes_dev',
+      images: ['/images/other/og.png'],
+    },
+    robots: {
       index: true,
       follow: true,
-      noimageindex: false,
+      nocache: false,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+      },
     },
+    alternates: {
+      canonical: 'https://arocrypt.vercel.app',
+    },
+    metadataBase: new URL('https://arocrypt.vercel.app'),
   },
-  alternates: {
-    canonical: "https://arocrypt.vercel.app",
+  ru: {
+    title: ru.metadata.index.title,
+    description: ru.metadata.index.desc,
+    keywords: Object.values(ru.metadata.index.keywords),
+    authors: [{ name: 'AroCodes', url: 'https://github.com/OfficialAroCodes' }],
+    icons: {
+      icon: [{ url: '/images/other/logo.png', type: 'image/png' }],
+    },
+    openGraph: {
+      title: ru.metadata.index.title,
+      description: ru.metadata.index.desc,
+      url: 'https://arocrypt.vercel.app',
+      siteName: 'AroCrypt',
+      images: [
+        {
+          url: '/images/other/og.png',
+          width: 1200,
+          height: 630,
+          alt: 'AroCrypt OpenGraph Preview',
+          type: 'image/png',
+        },
+      ],
+      type: 'website',
+      locale: 'ru_RU',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ru.metadata.index.title,
+      description: ru.metadata.index.x_desc,
+      creator: '@arocodes_dev',
+      images: ['/images/other/og.png'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: false,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+      },
+    },
+    alternates: {
+      canonical: 'https://arocrypt.vercel.app',
+    },
+    metadataBase: new URL('https://arocrypt.vercel.app'),
   },
-  metadataBase: new URL("https://arocrypt.vercel.app"),
 };
 
-export default async function LocaleLayout({
-  children,
-  params
+export async function generateMetadata({
+  params,
 }: {
-  children: React.ReactNode;
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
+  const selectedLocale = locale === 'ru' ? 'ru' : 'en';
 
-  if (!hasLocale(routing.locales, locale)) {
-    console.log('not found!');
+  return {
+    title: meta[selectedLocale].title,
+    description: meta[selectedLocale].description,
+    keywords: meta[selectedLocale].keywords,
+    authors: meta[selectedLocale].authors,
+    icons: meta[selectedLocale].icons,
+    openGraph: meta[selectedLocale].openGraph,
+    twitter: meta[selectedLocale].twitter,
+    robots: meta[selectedLocale].robots,
+    alternates: meta[selectedLocale].alternates,
+    metadataBase: meta[selectedLocale].metadataBase,
+  };
+}
+
+export default function LocaleLayout({
+  children,
+  params: { locale },
+}: {
+  children: ReactNode;
+  params: { locale: string };
+}) {
+  const messages = useMessages();
+
+  if (!['en', 'ru'].includes(locale)) {
+    notFound();
   }
 
   return (
     <html lang={locale} data-theme="light">
       <body>
-        <Analytics />
-        <SpeedInsights />
-        <NextIntlClientProvider>
-          <ThemeProvider>
-            <Topbar />
-            <main>{children}</main>
-            <Footer />
-          </ThemeProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <LocaleLayoutInner>{children}</LocaleLayoutInner>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,26 +1,23 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
-import { setCookie } from 'nookies';
+import { usePathname } from 'next/navigation';
 
 export const useChangeLanguage = () => {
-    const router = useRouter();
-    const pathname = usePathname();
+  const pathname = usePathname();
 
-    const changeLanguage = (lng: string) => {
-        const segments = pathname.split('/').filter(Boolean);
+  const changeLanguage = (lng: string) => {
+    const segments = pathname.split('/').filter(Boolean);
+    const currentLocale = ['en', 'ru'].includes(segments[0]) ? segments[0] : null;
 
-        if (['en', 'ru'].includes(segments[0])) {
-            segments[0] = lng;
-        } else {
-            segments.unshift(lng);
-        }
+    if (currentLocale) {
+      segments[0] = lng;
+    } else {
+      segments.unshift(lng);
+    }
 
-        const newPath = '/' + segments.join('/');
-        setCookie(null, 'NEXT_LOCALE', lng, { path: '/' });
+    const newPath = '/' + segments.join('/');
+    window.location.href = newPath;
+  };
 
-        router.replace(newPath);
-    };
-
-    return changeLanguage;
+  return changeLanguage;
 };

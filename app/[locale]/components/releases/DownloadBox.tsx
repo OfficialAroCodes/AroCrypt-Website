@@ -133,7 +133,7 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
             </div>
 
             <div className={`modal_main_container ${macModal && 'show'}`}>
-                <MacDownloadModal downloadLink={macDownloadLink} isShown={macModal} onClose={() => setMacModal(false)} />
+                <MacDownloadModal downloadLink={macDownloadLink} onClose={() => setMacModal(false)} />
             </div>
         </>
     );
