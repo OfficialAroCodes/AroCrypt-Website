@@ -7,8 +7,6 @@ export async function GET() {
   const now = Date.now();
   const isExpired = now - lastFetch > 60_000;
 
-  console.log('GITHUB_TOKEN:', !!process.env.GITHUB_TOKEN);
-
   if (!cache || isExpired) {
     try {
       const response = await fetch('https://api.github.com/repos/OfficialAroCodes/arocrypt/releases', {
