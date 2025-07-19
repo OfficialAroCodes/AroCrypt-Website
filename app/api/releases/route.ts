@@ -16,6 +16,7 @@ export async function GET() {
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         },
       });
+      console.log('GITHUB_TOKEN:', !!process.env.GITHUB_TOKEN);
 
       if (!response.ok) {
         const errText = await response.text();
