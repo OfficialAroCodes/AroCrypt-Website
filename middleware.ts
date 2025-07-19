@@ -8,5 +8,8 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ['/((?!api|_next|.*\\..*).*)'],
+  matcher: [
+    // Apply middleware to all routes except those listed
+    '/((?!api/|trpc/|_next/|_vercel/|ws/.*|.*\\..*).*)',
+  ],
 };
