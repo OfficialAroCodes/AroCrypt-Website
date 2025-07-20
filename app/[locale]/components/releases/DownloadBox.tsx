@@ -56,7 +56,6 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
                                 <a
                                     key={asset.name}
                                     href={asset.browser_download_url}
-                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className='download_button'
                                 >
@@ -84,7 +83,6 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
                                 <a
                                     key={asset.name}
                                     href={asset.browser_download_url}
-                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className='download_button'
                                 >

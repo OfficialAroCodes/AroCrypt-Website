@@ -87,7 +87,6 @@ const DownloadContent = () => {
                                     <a
                                         key={idx}
                                         href={file.url}
-                                        target="_blank"
                                         rel="noopener noreferrer"
                                         className='download_btn'
                                     >
@@ -101,13 +100,6 @@ const DownloadContent = () => {
                             ) : (
                                 <p className="not_available">
                                     {t('windows_unavailable')}
-                                    <a
-                                        href={`https://github.com/OfficialAroCodes/arocrypt/releases/latest`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        GitHub Releases
-                                    </a>
                                 </p>
                             )
                         }
@@ -132,7 +124,6 @@ const DownloadContent = () => {
                                     <a
                                         key={idx}
                                         href={file.url}
-                                        target="_blank"
                                         rel="noopener noreferrer"
                                         className='download_btn'
                                     >

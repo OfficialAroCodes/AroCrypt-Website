@@ -35,7 +35,6 @@ const MacDownloadModal: React.FC<MacDownloadModalProps> = ({ downloadLink, onClo
                 <button className="modal_button cancel" onClick={handleClose}>{t("unsigned_app.cancel")}</button>
                 <a
                     href={downloadLink}
-                    target="_blank"
                     rel="noopener noreferrer"
                     className="modal_button download"
                 >
