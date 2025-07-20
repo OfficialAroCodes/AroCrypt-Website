@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import "./main.css";
 
 /* info: Language Imports */
-import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
 import LocaleLayoutInner from "./LocaleLayoutInner";
 import { getTranslations } from 'next-intl/server';
 
@@ -92,18 +92,18 @@ export async function generateMetadata({
   };
 }
 
-function LocaleLayoutContent({
+async function LocaleLayoutContent({
   children,
   locale,
 }: {
   children: ReactNode;
   locale: string;
 }) {
-  const messages = useMessages();
-
   if (!['en', 'ru'].includes(locale)) {
     notFound();
   }
+
+  const messages = (await import(`../i18n/messages/${locale}.json`)).default;
 
   return (
     <html lang={locale} data-theme="light">
