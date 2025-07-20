@@ -74,7 +74,7 @@ const Topbar: React.FC = () => {
                             </Link>
                             <a href="https://github.com/OfficialAroCodes/arocrypt/" target="_blank">
                                 <p>
-                                    {t('source_code')}
+                                    Github
                                     <ArrowIcon width={20} height={20} />
                                 </p>
                             </a>

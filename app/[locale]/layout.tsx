@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 import { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";

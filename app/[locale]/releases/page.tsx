@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import ReleaseContent from './Content';
 import { getTranslations } from 'next-intl/server';
 
+export const dynamic = 'force-static';
+
+export async function generateStaticParams() {
+    return [
+        { locale: 'en' },
+        { locale: 'ru' },
+    ];
+}
+
 export async function generateMetadata({
     params,
 }: {

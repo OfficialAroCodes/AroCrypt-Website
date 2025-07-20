@@ -1033,6 +1033,38 @@ main {
   align-items: center;
 }
 
+.loading-element {
+  position: relative;
+  overflow: hidden;
+  background: #00000010;
+  border-radius: 6px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--borderbtn_hover_bg_color),
+      transparent
+    );
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation: loading 2s infinite;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: skewX(-10deg) translateX(-100%);
+  }
+  100% {
+    transform: skewX(-10deg) translateX(200%);
+  }
+}
+
 .releases_main_box {
   width: 100%;
   max-width: 1500px;
@@ -1041,6 +1073,27 @@ main {
   border-radius: 12px;
   display: flex;
   gap: 20px;
+
+  &.loading {
+    .version_button {
+      height: 38px;
+      background: var(--topbar_dropdown_border) !important;
+    }
+    .release_version {
+      height: 28px;
+      width: 200px;
+    }
+    .release_date {
+      height: 24px;
+      width: 100px;
+    }
+    .pin_content {
+      height: 60px;
+    }
+    .download_button {
+      height: 44px;
+    }
+  }
 
   .versions_list {
     width: 100%;
