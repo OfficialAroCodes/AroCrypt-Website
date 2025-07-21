@@ -92,13 +92,26 @@ const Content = () => {
                 />
             </motion.div>
             <div className='thanks_texts'>
-                <SplitText
-                    splitType='words'
-                    duration={3}
-                    delay={140}
-                    text={t('thanks.title')}
-                    className='section_header'
-                />
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                        opacity: 1,
+                        transition: {
+                            duration: 0.6,
+                            delay: 0.2,
+                            ease: [0, 0.71, 0.2, 1.01],
+                        },
+                    }}
+                    className='section_header_box'
+                >
+                    <SplitText
+                        splitType='words'
+                        duration={3}
+                        delay={140}
+                        text={t('thanks.title')}
+                        className='section_header'
+                    />
+                </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{

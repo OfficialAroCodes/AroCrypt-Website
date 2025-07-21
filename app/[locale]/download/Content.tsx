@@ -81,24 +81,37 @@ const DownloadContent = () => {
                         priority
                     />
                 </motion.div>
-                <SplitText
-                    splitType='chars'
-                    from={titleFrom}
-                    to={titleTo}
-                    duration={2}
-                    delay={30}
-                    text={t('download_page.header')}
-                    className='section_header'
-                />
-                <SplitText
-                    splitType='words'
-                    from={descFrom}
-                    to={descTo}
-                    duration={3}
-                    delay={60}
-                    text={t("download_page.info")}
-                    className='section_info'
-                />
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                        opacity: 1,
+                        transition: {
+                            duration: 0.6,
+                            delay: 0.2,
+                            ease: [0, 0.71, 0.2, 1.01],
+                        },
+                    }}
+                    className='section_header_box'
+                >
+                    <SplitText
+                        splitType='chars'
+                        from={titleFrom}
+                        to={titleTo}
+                        duration={2}
+                        delay={30}
+                        text={t('download_page.header')}
+                        className='section_header'
+                    />
+                    <SplitText
+                        splitType='words'
+                        from={descFrom}
+                        to={descTo}
+                        duration={3}
+                        delay={60}
+                        text={t("download_page.info")}
+                        className='section_info'
+                    />
+                </motion.div>
             </div>
             <div className='content'>
                 <div className='download_boxes'>

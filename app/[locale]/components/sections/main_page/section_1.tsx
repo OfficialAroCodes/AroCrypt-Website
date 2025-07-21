@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { motion } from "framer-motion";
 import Link from 'next/link';
@@ -10,27 +10,45 @@ import SplitText from '../../ui/SplitText';
 const Section_1 = () => {
     const t = useTranslations();
 
+    const titleFrom = useMemo(() => ({ opacity: 0, y: -16 }), []);
+    const titleTo = useMemo(() => ({ opacity: 1, y: -8 }), []);
+    const descFrom = useMemo(() => ({ opacity: 0, y: -6 }), []);
+    const descTo = useMemo(() => ({ opacity: 1, y: 0 }), []);
+
     return (
         <>
             <div className="main_section">
                 <div className="main_box">
-                    <SplitText
-                        splitType='words'
-                        duration={3}
-                        delay={50}
-                        text={t('main_section_header')}
-                        className='section_header main'
-                    />
                     <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 1.5,
-                            delay: 0.5,
-                            ease: [0, 0.71, 0.2, 1.01],
+                        initial={{ opacity: 0 }}
+                        animate={{
+                            opacity: 1,
+                            transition: {
+                                duration: 0.6,
+                                delay: 0.2,
+                                ease: [0, 0.71, 0.2, 1.01],
+                            },
                         }}
+                        className='section_header_box'
                     >
-                        <p className='text_info'>{t('main_section_description')}</p>
+                        <SplitText
+                            splitType='words'
+                            from={titleFrom}
+                            to={titleTo}
+                            duration={2.5}
+                            delay={80}
+                            text={t('main_section_header')}
+                            className='section_header main'
+                        />
+                        <SplitText
+                            splitType='words'
+                            from={descFrom}
+                            to={descTo}
+                            duration={3}
+                            delay={60}
+                            text={t('main_section_description')}
+                            className='text_info'
+                        />
                     </motion.div>
                 </div>
                 <div className="main_download_box">

@@ -679,6 +679,13 @@ main {
   }
 }
 
+.section_header_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .section_header {
   font-family: "Lora", serif;
   text-align: center;
@@ -2170,6 +2177,21 @@ footer {
 
     .details {
       text-align: center;
+    }
+  }
+
+  .thanks_page {
+    padding: 120px 15px 15px;
+  }
+
+  .thanks_btns {
+    flex-direction: column;
+    width: 100%;
+
+    button,
+    a {
+      text-align: center;
+      justify-content: center;
     }
   }
 }

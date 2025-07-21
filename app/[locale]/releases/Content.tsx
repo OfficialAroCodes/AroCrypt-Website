@@ -38,24 +38,37 @@ const ReleaseContent = () => {
     return (
         <>
             <div className='section_details'>
-                <SplitText
-                    splitType='chars'
-                    from={titleFrom}
-                    to={titleTo}
-                    duration={2}
-                    delay={30}
-                    text={`AroCrypt ${t('releases')}`}
-                    className='section_header'
-                />
-                <SplitText
-                    splitType='words'
-                    from={descFrom}
-                    to={descTo}
-                    duration={3}
-                    delay={60}
-                    text={t('releases_info')}
-                    className='section_info'
-                />
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                        opacity: 1,
+                        transition: {
+                            duration: 0.6,
+                            delay: 0.2,
+                            ease: [0, 0.71, 0.2, 1.01],
+                        },
+                    }}
+                    className='section_header_box'
+                >
+                    <SplitText
+                        splitType='chars'
+                        from={titleFrom}
+                        to={titleTo}
+                        duration={2}
+                        delay={30}
+                        text={`AroCrypt ${t('releases')}`}
+                        className='section_header'
+                    />
+                    <SplitText
+                        splitType='words'
+                        from={descFrom}
+                        to={descTo}
+                        duration={3}
+                        delay={60}
+                        text={t('releases_info')}
+                        className='section_info'
+                    />
+                </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{
