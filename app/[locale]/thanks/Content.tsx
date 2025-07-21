@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import SplitText from '../components/ui/SplitText'
 import confetti from 'canvas-confetti'
 import { motion } from 'framer-motion'
@@ -12,7 +12,7 @@ import { useGithub } from '../providers/GithubProvider'
 const Content = () => {
     const t = useTranslations();
     const end = Date.now() + 120 * 1000;
-    
+
     const colors = [
         "#ff6b35",
         "#ff9248",
@@ -24,7 +24,7 @@ const Content = () => {
 
     const animationFrameId = useRef<number | null>(null);
 
-    const frame = () => {
+    const frame = useCallback(() => {
         if (Date.now() > end) return;
 
         confetti({
@@ -45,7 +45,7 @@ const Content = () => {
         });
 
         animationFrameId.current = requestAnimationFrame(frame);
-    };
+    }, []);
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
