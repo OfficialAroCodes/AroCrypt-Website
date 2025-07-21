@@ -1,6 +1,8 @@
 import { useTranslations } from 'next-intl';
-import { FC, useState } from 'react';
-import MacDownloadModal from '../MacDownloadModal';
+import { FC } from 'react';
+import { useRouter } from 'next/navigation';
+import { useGithub } from '@/[locale]/providers/GithubProvider';
+import { useModal } from '@/[locale]/providers/MacModalProvider';
 
 interface ReleaseAsset {
     name: string;
@@ -19,8 +21,10 @@ interface DownloadBoxProps {
 
 const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
     const t = useTranslations();
-    const [macModal, setMacModal] = useState(false);
-    const [macDownloadLink, setMacDownloadLink] = useState("");
+    const router = useRouter();
+
+    const { setTempDownloadLink } = useGithub();
+    const { openMacModal } = useModal();
 
     if (!selectedVersion) return null;
 
@@ -58,6 +62,10 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
                                     href={asset.browser_download_url}
                                     rel="noopener noreferrer"
                                     className='download_button'
+                                    onClick={() => {
+                                        setTempDownloadLink(asset.browser_download_url);
+                                        router.push('/thanks');
+                                    }}
                                 >
                                     <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,168,96H136V32a8,8,0,0,0-16,0V96H88a8,8,0,0,0-5.66,13.66Z"></path></svg>
@@ -85,6 +93,10 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
                                     href={asset.browser_download_url}
                                     rel="noopener noreferrer"
                                     className='download_button'
+                                    onClick={() => {
+                                        setTempDownloadLink(asset.browser_download_url);
+                                        router.push('/thanks');
+                                    }}
                                 >
                                     <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,168,96H136V32a8,8,0,0,0-16,0V96H88a8,8,0,0,0-5.66,13.66Z"></path></svg>
@@ -110,8 +122,7 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
                                 <a
                                     key={asset.name}
                                     onClick={() => {
-                                        setMacDownloadLink(asset.browser_download_url);
-                                        setMacModal(true);
+                                        openMacModal(asset.browser_download_url);
                                     }}
                                     rel="noopener noreferrer"
                                     className='download_button'
@@ -128,10 +139,6 @@ const DownloadBox: FC<DownloadBoxProps> = ({ selectedVersion }) => {
                         )}
                     </div>
                 </div>
-            </div>
-
-            <div className={`modal_main_container ${macModal && 'show'}`}>
-                <MacDownloadModal downloadLink={macDownloadLink} onClose={() => setMacModal(false)} />
             </div>
         </>
     );

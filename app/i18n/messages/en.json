@@ -106,7 +106,7 @@
     },
     "download_page": {
         "header": "Download AroCrypt",
-        "info": "Download the latest AroCrypt — packed with encryption, performance upgrades, and everything you need to stay secure."
+        "info": "Download the latest AroCrypt — now with faster encryption, better performance, and stronger protection for your files and digital privacy."
     },
     "pin_board": {
         "header": "Pin Board",
@@ -159,5 +159,10 @@
                 "steganography software"
             ]
         }
+    },
+    "thanks": {
+        "title": "Get Ready to Download!",
+        "desc": "Your download will start shortly. Meanwhile, join our <discord>Discord</discord> and <telegram>Telegram</telegram> for updates, support, and community. Stay secure with AroCrypt.",
+        "download_again": "Download Again"
     }
 }

@@ -2,10 +2,10 @@
 
 import React from 'react'
 
-import BlurText from "@/[locale]/components/ui/BlurText";
 import { motion } from "framer-motion";
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import SplitText from '../../ui/SplitText';
 
 const Section_1 = () => {
     const t = useTranslations();
@@ -14,18 +14,19 @@ const Section_1 = () => {
         <>
             <div className="main_section">
                 <div className="main_box">
-                    <BlurText
+                    <SplitText
+                        splitType='words'
+                        duration={3}
+                        delay={50}
                         text={t('main_section_header')}
-                        delay={70}
-                        animateBy="words"
-                        direction="top"
+                        className='section_header main'
                     />
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 1.5,
-                            delay: 0.7,
+                            delay: 0.5,
                             ease: [0, 0.71, 0.2, 1.01],
                         }}
                     >
@@ -38,7 +39,7 @@ const Section_1 = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 0.8,
-                            delay: 0.9,
+                            delay: 0.7,
                             ease: [0, 0.71, 0.2, 1.01],
                         }}
                         className="main_btns"
@@ -56,7 +57,7 @@ const Section_1 = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 0.8,
-                            delay: 1.0,
+                            delay: 0.9,
                             ease: [0, 0.71, 0.2, 1.01],
                         }}
                         className="download_info"

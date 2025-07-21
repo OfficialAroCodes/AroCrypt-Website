@@ -526,12 +526,13 @@ main {
   justify-content: center;
   gap: 50px;
 
-  h1 {
+  h1,
+  .section_header.main {
     text-align: center;
     font-family: "Lora", serif !important;
     font-size: 62px;
     font-weight: 500;
-    max-width: 740px;
+    max-width: 730px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -685,7 +686,8 @@ main {
   font-weight: 600;
   justify-content: center;
 
-  span {
+  span,
+  div {
     font-family: "Lora", serif;
   }
 }
@@ -1033,38 +1035,6 @@ main {
   align-items: center;
 }
 
-.loading-element {
-  position: relative;
-  overflow: hidden;
-  background: #00000010;
-  border-radius: 6px;
-
-  &::before {
-    content: "";
-    position: absolute;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--borderbtn_hover_bg_color),
-      transparent
-    );
-    width: 50%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    animation: loading 2s infinite;
-  }
-}
-
-@keyframes loading {
-  0% {
-    transform: skewX(-10deg) translateX(-100%);
-  }
-  100% {
-    transform: skewX(-10deg) translateX(200%);
-  }
-}
-
 .releases_main_box {
   width: 100%;
   max-width: 1500px;
@@ -1073,27 +1043,6 @@ main {
   border-radius: 12px;
   display: flex;
   gap: 20px;
-
-  &.loading {
-    .version_button {
-      height: 38px;
-      background: var(--topbar_dropdown_border) !important;
-    }
-    .release_version {
-      height: 28px;
-      width: 200px;
-    }
-    .release_date {
-      height: 24px;
-      width: 100px;
-    }
-    .pin_content {
-      height: 60px;
-    }
-    .download_button {
-      height: 44px;
-    }
-  }
 
   .versions_list {
     width: 100%;
@@ -1697,6 +1646,49 @@ footer {
   .copyright_text {
     text-align: center;
     opacity: 0.9;
+  }
+}
+
+/* ? info: Thanks Page */
+
+.thanks_page {
+  padding: 120px 50px 50px;
+  padding-top: 200px;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  .thanks_texts {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .thanks_info {
+    text-align: center;
+    font-weight: 500;
+    opacity: 0.85;
+    max-width: 800px;
+
+    a {
+      color: var(--link-color);
+      font-weight: 600;
+      transition: 0.2s;
+
+      &:hover {
+        color: var(--link-color_hover);
+      }
+    }
+  }
+
+  .thanks_btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 }
 

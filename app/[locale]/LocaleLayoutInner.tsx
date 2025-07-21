@@ -10,15 +10,22 @@ import Footer from './components/Footer';
 /* ? Analytics */
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ModalProvider } from './providers/MacModalProvider';
+import MacDownloadModalWrapper from './providers/MacDownloadModalWrapper';
 
-export default function LocaleLayoutInner({ children }: { children: ReactNode }) {
+export default function LocaeLayoutInner({ children }: { children: ReactNode }) {
   return (
     <>
       <Analytics />
       <SpeedInsights />
       <ThemeProvider>
         <Topbar />
-        <main>{children}</main>
+        <ModalProvider>
+          <main>
+            <MacDownloadModalWrapper />
+            {children}
+          </main>
+        </ModalProvider>
         <Footer />
       </ThemeProvider>
     </>

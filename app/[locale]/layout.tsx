@@ -9,6 +9,7 @@ import "./main.css";
 import { NextIntlClientProvider } from 'next-intl';
 import LocaleLayoutInner from "./LocaleLayoutInner";
 import { getTranslations } from 'next-intl/server';
+import { GithubProvider } from "./providers/GithubProvider";
 
 export async function generateMetadata({
   params,
@@ -113,9 +114,11 @@ async function LocaleLayoutContent({
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <LocaleLayoutInner>{children}</LocaleLayoutInner>
-        </NextIntlClientProvider>
+        <GithubProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <LocaleLayoutInner>{children}</LocaleLayoutInner>
+          </NextIntlClientProvider>
+        </GithubProvider>
       </body>
     </html>
   );
