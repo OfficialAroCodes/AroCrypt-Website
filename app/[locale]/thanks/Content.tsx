@@ -12,6 +12,7 @@ import { useGithub } from '../providers/GithubProvider'
 const Content = () => {
     const t = useTranslations();
     const end = Date.now() + 120 * 1000;
+    
     const colors = [
         "#ff6b35",
         "#ff9248",
@@ -57,7 +58,7 @@ const Content = () => {
                 cancelAnimationFrame(animationFrameId.current);
             }
         };
-    }, []);
+    }, [frame]);
 
     const router = useRouter();
     const DownloadLink = useGithub().tempDownloadLink;

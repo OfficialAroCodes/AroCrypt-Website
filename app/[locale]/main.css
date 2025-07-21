@@ -2125,6 +2125,30 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
+  body {
+    zoom: 0.8;
+  }
+  .download_section {
+    .section_header {
+      font-size: 40px;
+    }
+    .section_info {
+      font-size: 16px;
+    }
+  }
+  .main_section {
+    .section_header.main {
+      text-wrap-style: balance;
+      font-size: 44px;
+    }
+    .text_info {
+      font-size: 14px;
+      width: 370px;
+    }
+  }
+  .main_btns {
+    flex-wrap: nowrap !important;
+  }
   .announcement_block {
     flex-direction: column;
     align-items: flex-start;
@@ -2137,19 +2161,10 @@ footer {
     font-size: 15px;
   }
   .colored_section_box {
-    padding: 0 5px;
+    padding: 0 15px;
   }
   .section {
-    padding: 10px;
-  }
-
-  .releases_section {
-    .section_header {
-      font-size: 40px;
-    }
-    .section_info {
-      font-size: 14px;
-    }
+    padding: 20px;
   }
 
   .download_btn {
@@ -2185,6 +2200,19 @@ footer {
   }
 
   .thanks_btns {
+    flex-direction: row !important;
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 396px) {
+  .main_section h1 {
+    font-size: 40px;
+  }
+  .main_btns {
+    flex-wrap: wrap;
+  }
+  .thanks_btns {
     flex-direction: column;
     width: 100%;
 
@@ -2193,11 +2221,5 @@ footer {
       text-align: center;
       justify-content: center;
     }
-  }
-}
-
-@media screen and (max-width: 396px) {
-  .main_section h1 {
-    font-size: 40px;
   }
 }
